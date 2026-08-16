@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="400" rx="40" fill="#FBF6EC"/>
+  <rect x="40" y="40" width="560" height="140" rx="24" fill="#E11D2E" stroke="#1C1A17" stroke-width="6"/>
+  <rect x="40" y="200" width="260" height="160" rx="24" fill="#1C1A17"/>
+  <rect x="320" y="200" width="280" height="160" rx="24" fill="#F3EAD9" stroke="#1C1A17" stroke-width="6"/>
+  <text x="320" y="352" font-family="monospace" font-size="22" font-weight="bold" fill="#1C1A17" text-anchor="middle">BIZ IMAGE</text>
+</svg>
