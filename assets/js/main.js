@@ -73,7 +73,7 @@
     window.addEventListener('scroll', getHeroRect, { passive: true });
 
     const trySeek = () => {
-      if (!videoReady || isSeeking) return;
+      if (!videoReady || isSeeking || isRewinding) return;
       if (Math.abs(heroVideo.currentTime - targetTime) > 0.02) {
         isSeeking = true;
         heroVideo.currentTime = targetTime;
@@ -102,6 +102,7 @@
       if (!heroVideo.paused) heroVideo.pause();
       if (heroVideo.playbackRate !== 1) heroVideo.playbackRate = 1;
       isRewinding = false;
+      targetTime = heroVideo.currentTime;
     };
 
     /* graceful playback back to the middle frame (plays, not jumps) */
@@ -115,31 +116,25 @@
       isRewinding = true;
       targetTime = mid;
       const dir = cur < mid ? 1 : -1;
-      heroVideo.playbackRate = dir;
-      heroVideo.play().catch(() => {});
+      heroVideo.pause();
 
-      let lastT = cur;
-      let stuck = 0;
-      const watch = () => {
+      let last = performance.now();
+      const watch = (now) => {
         if (rewindRAF === null) return;
+        const dt = (now - last) / 1000;
+        last = now;
         const t = heroVideo.currentTime;
-        if ((dir > 0 && t >= mid) || (dir < 0 && t <= mid)) {
-          heroVideo.pause();
-          heroVideo.playbackRate = 1;
-          heroVideo.currentTime = mid;
+        const step = dir * dt;
+        let next = t + step;
+        if ((dir > 0 && next >= mid) || (dir < 0 && next <= mid)) {
+          next = mid;
+          heroVideo.currentTime = next;
           targetTime = mid;
           rewindRAF = null;
           isRewinding = false;
           return;
         }
-        if (Math.abs(t - lastT) < 0.01) {
-          stuck++;
-          if (stuck > 60) {
-            const step = dir * 0.2;
-            heroVideo.currentTime = Math.max(0, Math.min(heroVideo.duration, t + step));
-          }
-        } else { stuck = 0; }
-        lastT = t;
+        heroVideo.currentTime = next;
         rewindRAF = requestAnimationFrame(watch);
       };
       rewindRAF = requestAnimationFrame(watch);
