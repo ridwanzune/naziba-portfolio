@@ -552,6 +552,25 @@ h2 {
   color: var(--ink-muted);
 }
 
+.lang-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.lang-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--ink-soft);
+}
+
 /* ---------- edu cards ---------- */
 
 .edu-card { display: grid; grid-template-columns: 84px 1fr; gap: 20px; align-items: start; }
