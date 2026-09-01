@@ -31,23 +31,23 @@
       display: flex;
       align-items: center;
       gap: 0;
-      background: rgba(17,17,17,0.85);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(17,17,17,0.9);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 40px;
-      padding: 3px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      padding: 4px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
     .mode-slider-wrap a {
       display: flex;
       align-items: center;
-      gap: 5px;
-      padding: 5px 12px;
+      gap: 6px;
+      padding: 6px 14px;
       border-radius: 36px;
       text-decoration: none;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       color: rgba(255,255,255,0.5);
@@ -57,13 +57,13 @@
     .mode-slider-wrap a.active {
       background: #fff;
       color: #111;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
     }
     .mode-slider-wrap a:hover:not(.active) {
-      color: rgba(255,255,255,0.8);
-      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.1);
     }
-    .mode-slider-wrap .mode-icon { font-size: 11px; }
+    .mode-slider-wrap .mode-icon { font-size: 12px; }
   </style>
   <script type="application/ld+json">
   {
@@ -468,190 +468,60 @@
           </div>
         </section>
 
-        <!-- 04 SKILLS -->
-        <section id="skills" class="doc-section acc-row">
-          <div class="acc-head" role="button" tabindex="0" aria-expanded="false">
+        <!-- 04 SKILLS — COMPACT HOVER GRID -->
+        <section id="skills" class="doc-section">
+          <div class="sec-header">
             <span class="sec-num">04</span>
             <h2>Skills</h2>
-            <span class="acc-proof">ESIA · Stata · surveys · lender reporting · 4 languages</span>
-            <span class="acc-chev" aria-hidden="true">↓</span>
           </div>
-          <div class="acc-body">
-            <div class="acc-inner">
-              <div class="panels">
-                <article class="panel reveal" data-tl="esia">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Assessment &amp; planning</h3>
-                    <span class="panel-meta">ESIA · screening &amp; scoping · baseline</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <div class="chips">
-                        <span class="chip">Socio-economic assessment</span><span class="chip">ESIA</span><span class="chip">Screening &amp; scoping</span><span class="chip">Baseline data collection</span><span class="chip">Impact significance</span><span class="chip">Cumulative &amp; ecological IA</span><span class="chip">Mitigation planning</span><span class="chip">Alternatives appraisal</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal" data-tl="sscl">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Stakeholders &amp; safeguards</h3>
-                    <span class="panel-meta">RAP · IFC PS · AIIB ES Policy · WB ESF</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <div class="chips">
-                        <span class="chip">Stakeholder consultation</span><span class="chip">Community engagement</span><span class="chip">RAP monitoring</span><span class="chip">IFC Performance Standards</span><span class="chip">AIIB ES Policy</span><span class="chip">WB ESF</span><span class="chip">Lender reporting</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal" data-tl="ifpri">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Stata</h3>
-                    <span class="panel-meta">95% · daily workhorse</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Daily workhorse — 15k+ obs panel analysis, fixed effects, cleaning.</p>
-                      <div class="bar-wrap">
-                        <div class="bar-label"><span>Proficiency</span><span>95%</span></div>
-                        <div class="bar"><div class="bar-fill" style="width:95%"></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal" data-tl="ifpri">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>R</h3>
-                    <span class="panel-meta">75% · modelling &amp; reproducibility</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Statistical modelling and reproducible analysis.</p>
-                      <div class="bar-wrap">
-                        <div class="bar-label"><span>Proficiency</span><span>75%</span></div>
-                        <div class="bar"><div class="bar-fill" style="width:75%"></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal" data-tl="brac">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Excel</h3>
-                    <span class="panel-meta">90% · survey data &amp; dashboards</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Survey data management, analysis and dashboards for clients.</p>
-                      <div class="bar-wrap">
-                        <div class="bar-label"><span>Proficiency</span><span>90%</span></div>
-                        <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal" data-tl="sscl">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Survey design</h3>
-                    <span class="panel-meta">85% · livelihood &amp; resettlement instruments</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Instruments for livelihood, resettlement and well-being measurement.</p>
-                      <div class="bar-wrap">
-                        <div class="bar-label"><span>Proficiency</span><span>85%</span></div>
-                        <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal" data-tl="ifpri">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Econometrics</h3>
-                    <span class="panel-meta">85% · panel &amp; impact evaluation</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Panel estimation, impact evaluation, applied micro policy analysis.</p>
-                      <div class="bar-wrap">
-                        <div class="bar-label"><span>Proficiency</span><span>85%</span></div>
-                        <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal" data-tl="sscl">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Technical reporting</h3>
-                    <span class="panel-meta">90% · lender-grade reports</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Lender-grade reports and plain-language briefs for non-specialists.</p>
-                      <div class="bar-wrap">
-                        <div class="bar-label"><span>Proficiency</span><span>90%</span></div>
-                        <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>English</h3>
-                    <span class="panel-meta">Fluent — professional &amp; academic</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Survey instruments, lender reports and policy briefs drafted and delivered in English.</p>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Bengali</h3>
-                    <span class="panel-meta">Native</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Native speaker — fieldwork and community interviews conducted in Bengali.</p>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Hindi</h3>
-                    <span class="panel-meta">Fluent</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Fluent — relevant for emerging-market roles across South Asia and beyond.</p>
-                    </div>
-                  </div>
-                </article>
-                <article class="panel reveal">
-                  <div class="panel-head" role="button" tabindex="0" aria-expanded="false">
-                    <h3>Urdu</h3>
-                    <span class="panel-meta">Conversational</span>
-                    <span class="acc-chev" aria-hidden="true">↓</span>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-inner">
-                      <p style="margin:2px 0 12px;">Conversational — practical for South Asian field settings and regional collaboration.</p>
-                    </div>
-                  </div>
-                </article>
-              </div>
+          <div class="skills-grid">
+            <div class="skill-chip" data-tl="esia">
+              <span class="skill-chip-label">ESIA &amp; Screening</span>
+              <div class="skill-chip-detail">Socio-economic assessment · baseline · impact significance · mitigation planning · cumulative IA</div>
+            </div>
+            <div class="skill-chip" data-tl="sscl">
+              <span class="skill-chip-label">Safeguards &amp; RAP</span>
+              <div class="skill-chip-detail">IFC PS · AIIB ES Policy · WB ESF · RAP monitoring · lender reporting · community engagement</div>
+            </div>
+            <div class="skill-chip" data-tl="ifpri">
+              <span class="skill-chip-label">Stata</span>
+              <div class="skill-chip-detail">Daily workhorse — 15k+ obs panel analysis, fixed effects, cleaning, visualisation</div>
+            </div>
+            <div class="skill-chip" data-tl="ifpri">
+              <span class="skill-chip-label">R</span>
+              <div class="skill-chip-detail">Statistical modelling and reproducible analysis pipelines</div>
+            </div>
+            <div class="skill-chip" data-tl="brac">
+              <span class="skill-chip-label">Excel</span>
+              <div class="skill-chip-detail">Survey data management, analysis and client dashboards</div>
+            </div>
+            <div class="skill-chip" data-tl="sscl">
+              <span class="skill-chip-label">Survey Design</span>
+              <div class="skill-chip-detail">Livelihood, resettlement and well-being measurement instruments</div>
+            </div>
+            <div class="skill-chip" data-tl="ifpri">
+              <span class="skill-chip-label">Econometrics</span>
+              <div class="skill-chip-detail">Panel estimation, impact evaluation, applied micro policy analysis</div>
+            </div>
+            <div class="skill-chip" data-tl="sscl">
+              <span class="skill-chip-label">Technical Reporting</span>
+              <div class="skill-chip-detail">Lender-grade reports and plain-language briefs for non-specialists</div>
+            </div>
+            <div class="skill-chip">
+              <span class="skill-chip-label">English</span>
+              <div class="skill-chip-detail">Fluent — survey instruments, lender reports, policy briefs</div>
+            </div>
+            <div class="skill-chip">
+              <span class="skill-chip-label">Bengali</span>
+              <div class="skill-chip-detail">Native — fieldwork and community interviews</div>
+            </div>
+            <div class="skill-chip">
+              <span class="skill-chip-label">Hindi</span>
+              <div class="skill-chip-detail">Fluent — South Asian field settings</div>
+            </div>
+            <div class="skill-chip">
+              <span class="skill-chip-label">Urdu</span>
+              <div class="skill-chip-detail">Conversational — regional collaboration</div>
             </div>
           </div>
         </section>
