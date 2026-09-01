@@ -966,21 +966,6 @@ button:focus-visible,
   .life-rail { display: none !important; }
   .edu-logo { display: none !important; }
   .mention-logo { display: none !important; }
-  .doc-hero-video { display: none !important; }
-  .doc-hero { padding: 24px 0 8px; }
-  .doc-hero h1 { font-size: clamp(1.8rem, 10vw, 2.8rem); }
-  .doc-hero .current-role { font-size: 0.82rem; margin-top: 10px; }
-  .doc-hero .seeking { font-size: 0.78rem; margin-top: 10px; }
-  .doc-hero .meta-line { font-size: 0.68rem; gap: 6px 14px; margin-top: 12px; }
-  .contact-row { gap: 8px; }
-  .contact-row .btn { padding: 8px 14px; font-size: 0.72rem; }
-  .avail { font-size: 0.72rem; padding: 6px 12px; }
-  .flag-pills { gap: 6px; }
-  .flag-pill { font-size: 0.66rem; padding: 4px 10px; }
-  .rotator-wrap { margin-top: 10px; }
-  .rotator { font-size: 0.78rem; }
-  .signals { padding: 12px 14px; gap: 8px; }
-  .signals span { font-size: 0.7rem; }
   .mode-slider-wrap { top: auto; bottom: 16px; padding: 2px; }
   .mode-slider-wrap a { padding: 4px 10px; font-size: 8px; gap: 4px; }
   .mode-slider-wrap .mode-icon { font-size: 10px; }
