@@ -967,6 +967,8 @@ button:focus-visible,
   .edu-logo { display: none !important; }
   .mention-logo { display: none !important; }
   .doc-hero-video { display: none !important; }
+  .doc-hero { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .doc-hero-inner { width: 100% !important; }
   .mode-slider-wrap { top: auto; bottom: 16px; padding: 2px; }
   .mode-slider-wrap a { padding: 4px 10px; font-size: 8px; gap: 4px; }
   .mode-slider-wrap .mode-icon { font-size: 10px; }
