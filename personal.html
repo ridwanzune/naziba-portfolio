@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naziba — The Personal Page</title>
   <meta name="description" content="Naziba Nawrin — the person behind the CV. Curious, emotional, endlessly learning.">
-  <meta name="theme-color" content="#faf9f7">
+  <meta name="theme-color" content="#faf6f1">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
     :root {
       --cream: #faf6f1;
       --cream-dark: #f0ebe3;
+      --paper: #fff9f0;
       --ink: #2c2418;
       --ink-soft: #6b5e4f;
       --ink-faint: #a89880;
@@ -28,8 +29,16 @@
       --tape-border: rgba(200, 170, 100, 0.3);
       --shadow: rgba(44, 36, 24, 0.08);
       --shadow-heavy: rgba(44, 36, 24, 0.15);
-      --font-hand: 'Caveat', cursive;
-      --font-serif: 'Lora', Georgia, serif;
+      --highlight-yellow: rgba(255, 230, 100, 0.35);
+      --highlight-pink: rgba(255, 150, 170, 0.25);
+      --highlight-green: rgba(140, 210, 140, 0.25);
+      --highlight-blue: rgba(140, 180, 230, 0.25);
+      --sticky-yellow: #fef3a7;
+      --sticky-pink: #fde2e8;
+      --sticky-blue: #d4e6f5;
+      --sticky-green: #d5edda;
+      --font-hand: 'Patrick Hand', cursive;
+      --font-serif: 'Crimson Pro', Georgia, serif;
       --font-display: 'Playfair Display', Georgia, serif;
       --font-mono: 'Space Mono', monospace;
     }
@@ -40,7 +49,7 @@
       font-family: var(--font-serif);
       background: var(--cream);
       color: var(--ink);
-      line-height: 1.7;
+      line-height: 1.75;
       min-height: 100vh;
       background-image:
         repeating-linear-gradient(
@@ -51,6 +60,7 @@
         );
       background-size: 100% 32px;
       background-position: 0 0;
+      overflow-x: hidden;
     }
 
     /* ═══ MODE SLIDER ═══ */
@@ -69,9 +79,7 @@
       padding: 4px;
       box-shadow: 0 2px 12px var(--shadow), 0 0 0 1px rgba(255,255,255,0.6) inset;
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
     }
-
     .mode-slider-wrap a {
       display: flex;
       align-items: center;
@@ -84,30 +92,26 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
       color: var(--ink-soft);
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
       white-space: nowrap;
     }
-
     .mode-slider-wrap a.active {
       background: var(--ink);
       color: var(--cream);
       box-shadow: 0 2px 8px var(--shadow-heavy);
     }
-
     .mode-slider-wrap a:hover:not(.active) {
       color: var(--ink);
       background: var(--cream-dark);
     }
+    .mode-slider-wrap .mode-icon { font-size: 14px; }
 
-    .mode-slider-wrap .mode-icon {
-      font-size: 14px;
-    }
-
-    /* ═══ TOPMARGIN ═══ */
+    /* ═══ PAGE ═══ */
     .page-wrap {
-      max-width: 720px;
+      max-width: 740px;
       margin: 0 auto;
       padding: 100px 24px 80px;
+      position: relative;
     }
 
     /* ═══ HEADER ═══ */
@@ -118,7 +122,6 @@
       border-bottom: 2px solid var(--line);
       position: relative;
     }
-
     .diary-header::after {
       content: '';
       position: absolute;
@@ -128,7 +131,6 @@
       height: 1px;
       background: var(--line-faint);
     }
-
     .diary-date {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -137,7 +139,6 @@
       color: var(--ink-faint);
       margin-bottom: 16px;
     }
-
     .diary-name {
       font-family: var(--font-display);
       font-size: clamp(36px, 6vw, 56px);
@@ -147,41 +148,18 @@
       margin-bottom: 12px;
       color: var(--ink);
     }
-
     .diary-subtitle {
       font-family: var(--font-hand);
-      font-size: clamp(20px, 3vw, 28px);
+      font-size: clamp(22px, 3.5vw, 30px);
       color: var(--accent);
-      font-weight: 500;
-    }
-
-    .diary-rule {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 48px 0 40px;
-      color: var(--ink-faint);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .diary-rule::before,
-    .diary-rule::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--line);
     }
 
     /* ═══ ENTRIES ═══ */
     .diary-entry {
       margin-bottom: 56px;
       position: relative;
-      padding-left: 28px;
+      padding-left: 32px;
     }
-
     .diary-entry::before {
       content: '';
       position: absolute;
@@ -191,14 +169,13 @@
       width: 2px;
       background: var(--line);
     }
-
     .diary-entry::after {
       content: '';
       position: absolute;
-      left: -4px;
+      left: -5px;
       top: 8px;
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: var(--accent-soft);
       border: 2px solid var(--cream);
@@ -207,87 +184,202 @@
 
     .entry-label {
       font-family: var(--font-hand);
-      font-size: 15px;
+      font-size: 22px;
       color: var(--accent);
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .entry-title {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 3.5vw, 30px);
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      letter-spacing: -0.3px;
+      margin-bottom: 12px;
     }
 
     .entry-body {
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.8;
       color: var(--ink);
     }
+    .entry-body p { margin-bottom: 16px; }
+    .entry-body p:last-child { margin-bottom: 0; }
 
-    .entry-body p {
-      margin-bottom: 16px;
+    /* ═══ MARKER HIGHLIGHTS ═══ */
+    .hl-yellow {
+      background: var(--highlight-yellow);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+    .hl-pink {
+      background: var(--highlight-pink);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+    .hl-green {
+      background: var(--highlight-green);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+    .hl-blue {
+      background: var(--highlight-blue);
+      padding: 1px 4px;
+      border-radius: 2px;
     }
 
-    .entry-body p:last-child {
-      margin-bottom: 0;
+    /* ═══ WASHI TAPE ═══ */
+    .washi {
+      position: absolute;
+      height: 26px;
+      border-radius: 2px;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .washi-yellow {
+      background: repeating-linear-gradient(45deg, rgba(255,210,80,0.5), rgba(255,210,80,0.5) 3px, rgba(255,230,130,0.5) 3px, rgba(255,230,130,0.5) 6px);
+      border: 1px solid rgba(200,170,60,0.3);
+    }
+    .washi-pink {
+      background: repeating-linear-gradient(-45deg, rgba(255,160,180,0.5), rgba(255,160,180,0.5) 3px, rgba(255,190,200,0.5) 3px, rgba(255,190,200,0.5) 6px);
+      border: 1px solid rgba(200,120,140,0.3);
+    }
+    .washi-green {
+      background: repeating-linear-gradient(45deg, rgba(140,200,140,0.5), rgba(140,200,140,0.5) 3px, rgba(170,220,170,0.5) 3px, rgba(170,220,170,0.5) 6px);
+      border: 1px solid rgba(100,160,100,0.3);
+    }
+    .washi-blue {
+      background: repeating-linear-gradient(-45deg, rgba(130,170,230,0.5), rgba(130,170,230,0.5) 3px, rgba(160,195,240,0.5) 3px, rgba(160,195,240,0.5) 6px);
+      border: 1px solid rgba(90,130,190,0.3);
     }
 
     /* ═══ TAPE CARD ═══ */
     .tape-card {
-      background: #fff;
+      background: var(--paper);
       border: 1px solid var(--line-faint);
-      border-radius: 4px;
-      padding: 28px 24px;
-      margin: 24px 0;
+      border-radius: 3px;
+      padding: 32px 28px;
+      margin: 36px 0;
       position: relative;
-      box-shadow: 0 2px 8px var(--shadow);
-      transform: rotate(-0.5deg);
+      box-shadow: 2px 3px 10px var(--shadow), -1px -1px 0 rgba(255,255,255,0.8) inset;
     }
+    .tape-card.tilt-left { transform: rotate(-0.8deg); }
+    .tape-card.tilt-right { transform: rotate(0.6deg); }
+    .tape-card.tilt-more { transform: rotate(-1.2deg); }
 
-    .tape-card::before {
+    /* ═══ STICKY NOTE ═══ */
+    .sticky {
+      padding: 28px 24px 32px;
+      margin: 32px 0;
+      position: relative;
+      box-shadow: 2px 3px 8px var(--shadow-heavy), -1px -1px 0 rgba(255,255,255,0.5) inset;
+      transform: rotate(-1deg);
+      font-family: var(--font-hand);
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+    .sticky-yellow { background: var(--sticky-yellow); }
+    .sticky-pink { background: var(--sticky-pink); }
+    .sticky-blue { background: var(--sticky-blue); }
+    .sticky-green { background: var(--sticky-green); }
+
+    .sticky::before {
       content: '';
       position: absolute;
-      top: -10px;
+      top: -12px;
       left: 50%;
-      transform: translateX(-50%) rotate(-2deg);
-      width: 80px;
-      height: 22px;
-      background: var(--tape);
-      border: 1px solid var(--tape-border);
+      transform: translateX(-50%) rotate(-1deg);
+      width: 70px;
+      height: 24px;
+      background: rgba(255,220,150,0.6);
+      border: 1px solid rgba(200,170,100,0.3);
       border-radius: 2px;
     }
-
-    .tape-card.tilt-right {
-      transform: rotate(0.7deg);
-    }
-
-    .tape-card.tilt-right::before {
-      transform: translateX(-50%) rotate(1.5deg);
+    .sticky.fold::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.04) 50%);
+      border-top: 1px solid rgba(0,0,0,0.05);
+      border-left: 1px solid rgba(0,0,0,0.05);
     }
 
     /* ═══ TORN PAPER ═══ */
     .torn-paper {
       background: var(--cream-dark);
-      border-radius: 2px;
       padding: 32px 28px;
-      margin: 32px 0;
+      margin: 36px 0;
       position: relative;
       border-left: 3px solid var(--accent);
-      box-shadow: inset 0 0 20px rgba(44, 36, 24, 0.03);
+      box-shadow: inset 0 0 20px rgba(44,36,24,0.03);
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 24px) calc(100% - 6px), calc(100% - 36px) 100%, calc(100% - 48px) calc(100% - 4px), 0 100%);
+      padding-bottom: 40px;
     }
 
-    .torn-paper::before {
-      content: '✂';
+    /* ═══ PAPER CLIP ═══ */
+    .paperclip {
       position: absolute;
-      top: -8px;
-      right: 20px;
-      font-size: 14px;
-      color: var(--ink-faint);
-      opacity: 0.4;
+      width: 24px;
+      height: 56px;
+      border: 2px solid #aaa;
+      border-radius: 12px 12px 0 0;
+      z-index: 3;
+    }
+    .paperclip::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 4px;
+      width: 14px;
+      height: 32px;
+      border: 2px solid #aaa;
+      border-radius: 8px 8px 0 0;
+      border-bottom: none;
+    }
+    .paperclip.silver { border-color: #b0b0b0; }
+    .paperclip.silver::after { border-color: #b0b0b0; }
+    .paperclip.gold { border-color: #c9a84c; }
+    .paperclip.gold::after { border-color: #c9a84c; }
+
+    /* ═══ PUSH PIN ═══ */
+    .pushpin {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 2px 4px var(--shadow-heavy), inset 0 -2px 3px rgba(0,0,0,0.2);
+      margin-right: 10px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .pushpin.green { background: #5a9e5a; }
+    .pushpin.blue { background: #4a7ea8; }
+    .pushpin.yellow { background: #c4a84a; }
+    .pushpin.red { background: #c45a4a; }
+    .pushpin.pink { background: #d47a9a; }
+
+    /* ═══ DOODLE CIRCLE (SVG-based) ═══ */
+    .doodle-wrap {
+      position: relative;
+      display: inline;
+    }
+    .doodle-circle {
+      position: absolute;
+      top: -6px;
+      left: -10px;
+      width: calc(100% + 20px);
+      height: calc(100% + 12px);
+      pointer-events: none;
+    }
+    .doodle-circle path {
+      fill: none;
+      stroke: var(--accent-soft);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+      animation: doodleDraw 0.8s ease forwards 0.5s;
+    }
+    @keyframes doodleDraw {
+      to { stroke-dashoffset: 0; }
     }
 
     /* ═══ LIST ═══ */
@@ -295,49 +387,20 @@
       list-style: none;
       padding: 0;
     }
-
     .love-list li {
-      padding: 8px 0 8px 24px;
+      padding: 10px 0 10px 28px;
       position: relative;
-      font-size: 15.5px;
+      font-size: 16px;
       line-height: 1.6;
       border-bottom: 1px dashed var(--line-faint);
     }
-
-    .love-list li:last-child {
-      border-bottom: none;
-    }
-
+    .love-list li:last-child { border-bottom: none; }
     .love-list li::before {
-      content: '♡';
+      content: attr(data-icon);
       position: absolute;
       left: 0;
-      color: var(--accent-soft);
-      font-size: 13px;
-      top: 10px;
-    }
-
-    /* ═══ QUOTE ═══ */
-    .diary-quote {
-      font-family: var(--font-hand);
-      font-size: clamp(22px, 3vw, 30px);
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--accent-deep);
-      line-height: 1.4;
-      position: relative;
-    }
-
-    .diary-quote::before {
-      content: '"';
-      font-family: var(--font-display);
-      font-size: 60px;
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--line);
-      line-height: 1;
+      font-size: 14px;
+      top: 12px;
     }
 
     /* ═══ BOOKSHELF ═══ */
@@ -345,28 +408,45 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 16px;
-      margin: 24px 0;
+      margin: 28px 0;
     }
-
     .book {
-      background: var(--cream-dark);
       border: 1px solid var(--line);
       border-radius: 3px;
-      padding: 16px 12px;
+      padding: 18px 12px 14px;
       text-align: center;
       font-family: var(--font-hand);
-      font-size: 15px;
+      font-size: 16px;
       color: var(--ink);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor: default;
       position: relative;
+      overflow: hidden;
     }
-
+    .book::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+    .book:nth-child(1) { background: #f5ede0; }
+    .book:nth-child(1)::before { background: #8a6a3e; }
+    .book:nth-child(2) { background: #e8eaf0; }
+    .book:nth-child(2)::before { background: #4a5a7a; }
+    .book:nth-child(3) { background: #f0e8e0; }
+    .book:nth-child(3)::before { background: #a86a4a; }
+    .book:nth-child(4) { background: #e8f0e8; }
+    .book:nth-child(4)::before { background: #5a8a5a; }
+    .book:nth-child(5) { background: #f0e8f0; }
+    .book:nth-child(5)::before { background: #8a5a8a; }
+    .book:nth-child(6) { background: #f0ece4; }
+    .book:nth-child(6)::before { background: #7a6a4a; }
     .book:hover {
       transform: translateY(-4px) rotate(-1deg);
       box-shadow: 0 4px 12px var(--shadow-heavy);
     }
-
     .book .book-author {
       display: block;
       font-family: var(--font-mono);
@@ -381,14 +461,92 @@
     .sticker {
       display: inline-block;
       font-family: var(--font-hand);
-      font-size: 13px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 1.5px dashed;
-      margin: 4px;
-      color: var(--accent);
-      border-color: var(--accent-soft);
-      background: rgba(180, 106, 70, 0.04);
+      font-size: 15px;
+      padding: 6px 14px;
+      border-radius: 3px;
+      margin: 6px;
+      position: relative;
+      box-shadow: 1px 2px 4px var(--shadow);
+    }
+    .sticker-yellow { background: var(--sticky-yellow); transform: rotate(-2deg); }
+    .sticker-pink { background: var(--sticky-pink); transform: rotate(1.5deg); }
+    .sticker-blue { background: var(--sticky-blue); transform: rotate(-1deg); }
+    .sticker-green { background: var(--sticky-green); transform: rotate(2deg); }
+
+    /* ═══ TAPE STRIPS ═══ */
+    .tape-strip {
+      position: absolute;
+      height: 22px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .tape-strip-yellow {
+      background: rgba(255,210,80,0.45);
+      border: 1px solid rgba(200,170,60,0.25);
+    }
+    .tape-strip-pink {
+      background: rgba(255,160,180,0.45);
+      border: 1px solid rgba(200,120,140,0.25);
+    }
+
+    /* ═══ QUOTE ═══ */
+    .diary-quote {
+      font-family: var(--font-hand);
+      font-size: clamp(22px, 3vw, 30px);
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--accent-deep);
+      line-height: 1.5;
+      position: relative;
+    }
+    .diary-quote::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 72px;
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--line);
+      line-height: 1;
+    }
+
+    /* ═══ HAND DIVIDER ═══ */
+    .hand-divider {
+      text-align: center;
+      margin: 40px 0;
+      font-family: var(--font-hand);
+      font-size: 22px;
+      color: var(--ink-faint);
+      letter-spacing: 8px;
+    }
+
+    /* ═══ COFFEE STAIN ═══ */
+    .coffee-stain {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid rgba(180,140,80,0.12);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .coffee-stain::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border-radius: 50%;
+      border: 1px solid rgba(180,140,80,0.08);
+    }
+
+    /* ═══ DOODLE ARROW ═══ */
+    .doodle-arrow {
+      text-align: center;
+      font-family: var(--font-hand);
+      font-size: 28px;
+      color: var(--ink-faint);
+      margin: 16px 0;
+      opacity: 0.5;
     }
 
     /* ═══ FOOTER ═══ */
@@ -398,15 +556,12 @@
       border-top: 2px solid var(--line);
       margin-top: 60px;
     }
-
     .diary-footer .hand-name {
       font-family: var(--font-hand);
-      font-size: 42px;
+      font-size: 48px;
       color: var(--accent);
-      font-weight: 700;
       margin-bottom: 8px;
     }
-
     .diary-footer .footer-line {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -414,58 +569,12 @@
       color: var(--ink-faint);
       text-transform: uppercase;
     }
-
     .diary-footer .footer-line a {
       color: var(--accent);
       text-decoration: none;
     }
-
     .diary-footer .footer-line a:hover {
       text-decoration: underline;
-    }
-
-    /* ═══ COFFEE STAIN ═══ */
-    .coffee-stain {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 2px solid rgba(180, 140, 80, 0.12);
-      pointer-events: none;
-    }
-
-    .coffee-stain::after {
-      content: '';
-      position: absolute;
-      inset: 6px;
-      border-radius: 50%;
-      border: 1px solid rgba(180, 140, 80, 0.08);
-    }
-
-    /* ═══ PIN ═══ */
-    .pushpin {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 1px 3px var(--shadow-heavy), inset 0 -1px 2px rgba(0,0,0,0.2);
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-
-    .pushpin.green { background: #6a9e6a; }
-    .pushpin.blue { background: #5a7ea8; }
-    .pushpin.yellow { background: #c4a84a; }
-
-    /* ═══ HAND DIVIDER ═══ */
-    .hand-divider {
-      text-align: center;
-      margin: 40px 0;
-      font-family: var(--font-hand);
-      font-size: 20px;
-      color: var(--ink-faint);
-      letter-spacing: 8px;
     }
 
     /* ═══ ANIMATIONS ═══ */
@@ -473,12 +582,10 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .reveal {
       opacity: 0;
       animation: fadeSlideUp 0.6s ease forwards;
     }
-
     .reveal:nth-child(1) { animation-delay: 0.1s; }
     .reveal:nth-child(2) { animation-delay: 0.2s; }
     .reveal:nth-child(3) { animation-delay: 0.3s; }
@@ -490,10 +597,12 @@
     /* ═══ RESPONSIVE ═══ */
     @media (max-width: 600px) {
       .page-wrap { padding: 80px 16px 60px; }
-      .diary-entry { padding-left: 20px; }
+      .diary-entry { padding-left: 22px; }
       .tape-card { padding: 24px 18px; transform: none !important; }
+      .sticky { transform: none !important; }
       .mode-slider-wrap a { padding: 6px 14px; font-size: 10px; }
       .bookshelf { grid-template-columns: repeat(2, 1fr); }
+      .washi { display: none; }
     }
   </style>
 </head>
@@ -511,27 +620,30 @@
 
   <div class="page-wrap">
 
-    <!-- HEADER -->
-    <header class="diary-header reveal">
+    <!-- HEADER with washi tape corners -->
+    <header class="diary-header reveal" style="position:relative;">
+      <div class="washi washi-yellow" style="width:90px;top:-14px;left:30px;transform:rotate(-3deg);"></div>
+      <div class="washi washi-pink" style="width:80px;top:-14px;right:40px;transform:rotate(2deg);"></div>
       <div class="diary-date">a page from the diary of</div>
       <h1 class="diary-name">Naziba Nawrin</h1>
       <div class="diary-subtitle">storyteller in progress, chronic asker of "but why?"</div>
     </header>
 
     <!-- ENTRY: THE SHORT VERSION -->
-    <div class="diary-entry reveal">
+    <div class="diary-entry reveal" style="position:relative;">
+      <div class="washi washi-green" style="width:60px;top:0;right:-10px;transform:rotate(4deg);"></div>
       <div class="entry-label"><span class="pushpin green"></span>the short version</div>
       <div class="entry-body">
-        <p>I'm endlessly curious, quietly observant, deeply emotional, and happiest when I'm mid-conversation, mid-journey, or mid-way through figuring something out. I care more about the process than the finish line — always have.</p>
+        <p>I'm <span class="hl-yellow">endlessly curious</span>, <span class="hl-pink">quietly observant</span>, deeply emotional, and happiest when I'm mid-conversation, mid-journey, or mid-way through figuring something out. I care more about the process than the finish line — always have.</p>
       </div>
     </div>
 
     <!-- ENTRY: THE WORLD BETWEEN -->
     <div class="diary-entry reveal">
-      <div class="entry-label"><span class="pushpin"></span>the world between three places</div>
+      <div class="entry-label"><span class="pushpin blue"></span>the world between three places</div>
       <div class="entry-body">
-        <p>I was born and raised in Bangladesh, spent three years building an independent life in the U.S. during my undergrad, and the last two navigating the beautiful chaos of London while finishing my master's. Somewhere between those three very different worlds, I stopped fearing the unfamiliar and started chasing it.</p>
-        <p>I've learned that "home" isn't really a place for me — it's a feeling I know how to build, wherever I land.</p>
+        <p>I was born and raised in <span class="hl-green">Bangladesh</span>, spent three years building an independent life in the <span class="hl-blue">U.S.</span> during my undergrad, and the last two navigating the beautiful chaos of <span class="hl-yellow">London</span> while finishing my master's. Somewhere between those three very different worlds, I stopped fearing the unfamiliar and started chasing it.</p>
+        <p>I've learned that <span class="doodle-wrap">"home" isn't really a place for me<svg class="doodle-circle" viewBox="0 0 200 40"><path d="M10,20 Q5,5 30,8 Q80,-5 150,10 Q195,15 190,25 Q185,38 140,32 Q60,42 20,35 Q5,33 10,20Z"/></svg> — it's a feeling I know how to build, wherever I land.</p>
       </div>
     </div>
 
@@ -539,53 +651,55 @@
 
     <!-- ENTRY: WHAT MAKES ME, ME -->
     <div class="diary-entry reveal">
-      <div class="entry-label"><span class="pushpin blue"></span>what makes me, me</div>
+      <div class="entry-label"><span class="pushpin red"></span>what makes me, me</div>
       <div class="entry-body">
-        <p>I ask too many questions. Not the small-talk kind — the "wait, but why does it actually work that way" kind. If something catches my interest, I can't just know the fact; I need to understand the why underneath it. This has made me a lifelong learner in the least academic sense of the word — I just genuinely love figuring things out.</p>
-
+        <p>I ask too many questions. Not the small-talk kind — the <span class="hl-pink">"wait, but why does it actually work that way"</span> kind. If something catches my interest, I can't just know the fact; I need to understand the why underneath it. This has made me a <span class="hl-yellow">lifelong learner</span> in the least academic sense of the word — I just genuinely love figuring things out.</p>
         <p>I notice things. A shift in someone's tone, a detail no one else caught, the thing left unsaid in a room full of things being said. I've always been like this — deeply attentive to people, and almost as attentive to my own inner world. I reflect a lot, probably more than is strictly necessary, but it's given me a level of self-awareness I wouldn't trade for anything.</p>
       </div>
     </div>
 
-    <!-- TAPE CARD: PEOPLE, FOOD, CULTURE -->
-    <div class="tape-card reveal">
-      <div class="entry-body">
-        <p>I love people, food, culture, and everything in between. Travel, for me, isn't about checking places off a list — it's about sitting at someone's table, hearing their stories, tasting how they experience the world. I'm endlessly fascinated by psychology and human behaviour, by nature and the vastness of the universe, and by how many different, equally valid ways there are to live a life.</p>
-      </div>
+    <!-- STICKY NOTE: PEOPLE, FOOD, CULTURE -->
+    <div class="sticky sticky-yellow fold reveal" style="position:relative;">
+      <div class="tape-strip tape-strip-pink" style="width:70px;top:-13px;left:50%;transform:translateX(-50%) rotate(-1deg);"></div>
+      <div style="margin-bottom:10px;font-size:24px;">✨</div>
+      <p style="margin:0;">I love people, food, culture, and everything in between. Travel, for me, isn't about checking places off a list — it's about sitting at someone's table, hearing their stories, tasting how they experience the world.</p>
+      <p style="margin:12px 0 0;font-style:italic;color:var(--ink-soft);font-size:15px;">endlessly fascinated by psychology, nature, and how many different ways there are to live a life.</p>
     </div>
 
     <!-- ENTRY: I CARE -->
     <div class="diary-entry reveal">
       <div class="entry-label"><span class="pushpin yellow"></span>where I find meaning</div>
       <div class="entry-body">
-        <p>I care, intensely. Helping people, contributing something useful, making someone's day a little lighter — that's where I find real fulfilment. Growth, for me, isn't just personal. It only really means something if it eventually helps someone else too.</p>
+        <p>I care, <span class="hl-yellow">intensely</span>. Helping people, contributing something useful, making someone's day a little lighter — that's where I find real fulfilment. Growth, for me, isn't just personal. It only really means something if it eventually helps someone else too.</p>
       </div>
     </div>
 
     <!-- TORN PAPER: JOURNEY OVER DESTINATION -->
-    <div class="torn-paper reveal">
+    <div class="torn-paper reveal" style="position:relative;">
+      <div class="paperclip gold" style="top:-18px;right:30px;transform:rotate(8deg);"></div>
       <div class="entry-body">
-        <p>I believe in the journey over the destination. I'm ambitious, and I care about the things I set my mind to — but I never want my life to shrink down to a list of achievements. I want to stay curious, kind, open to being wrong, and willing to change my mind. Some of my biggest growth has come from the messy middle of things — the mistakes, the uncertainty, the figuring-it-out — not the neatly wrapped ending.</p>
+        <p>I believe in <span class="hl-green">the journey over the destination</span>. I'm ambitious, and I care about the things I set my mind to — but I never want my life to shrink down to a list of achievements. I want to stay curious, kind, open to being wrong, and willing to change my mind. Some of my biggest growth has come from <span class="hl-pink">the messy middle</span> of things — the mistakes, the uncertainty, the figuring-it-out — not the neatly wrapped ending.</p>
       </div>
     </div>
 
-    <div class="hand-divider">~ ~ ~</div>
+    <div class="doodle-arrow">↓</div>
 
     <!-- ENTRY: WHAT I LOVE -->
-    <div class="diary-entry reveal">
-      <div class="entry-label"><span class="pushpin green"></span>what I love</div>
+    <div class="diary-entry reveal" style="position:relative;">
+      <div class="washi washi-yellow" style="width:50px;bottom:20px;left:-20px;transform:rotate(-6deg);"></div>
+      <div class="entry-label"><span class="pushpin pink"></span>what I love</div>
       <div class="entry-body">
         <ul class="love-list">
-          <li>Travel &amp; exploring new places — through people, not just landmarks</li>
-          <li>Learning &amp; curiosity — for its own sake, no agenda required</li>
-          <li>Psychology &amp; human behaviour — the why behind how people think and act</li>
-          <li>Personal growth &amp; self-development — the slow, unglamorous kind</li>
-          <li>Cooking &amp; food — one of my favourite languages for connection</li>
-          <li>Culture &amp; different ways of life — endlessly interesting, endlessly humbling</li>
-          <li>Nature, wildlife &amp; the universe — reminders of how small and vast everything is</li>
-          <li>Deep conversations — over small talk, every single time</li>
-          <li>Helping &amp; supporting others — where I feel most myself</li>
-          <li>Exploring new ideas &amp; perspectives — I'd rather be pleasantly wrong than comfortably certain</li>
+          <li data-icon="🌍">Travel &amp; exploring new places — through people, not just landmarks</li>
+          <li data-icon="🔍">Learning &amp; curiosity — for its own sake, no agenda required</li>
+          <li data-icon="🧠">Psychology &amp; human behaviour — the why behind how people think and act</li>
+          <li data-icon="🌱">Personal growth — the slow, unglamorous kind</li>
+          <li data-icon="🍳">Cooking &amp; food — one of my favourite languages for connection</li>
+          <li data-icon="🎭">Culture &amp; different ways of life — endlessly interesting, endlessly humbling</li>
+          <li data-icon="🌿">Nature, wildlife &amp; the universe — reminders of how small and vast everything is</li>
+          <li data-icon="💬">Deep conversations — over small talk, every single time</li>
+          <li data-icon="🤝">Helping &amp; supporting others — where I feel most myself</li>
+          <li data-icon="💡">Exploring new ideas — I'd rather be pleasantly wrong than comfortably certain</li>
         </ul>
       </div>
     </div>
@@ -593,10 +707,11 @@
     <div class="hand-divider">~ ~ ~</div>
 
     <!-- ENTRY: ON MY BOOKSHELF -->
-    <div class="diary-entry reveal">
+    <div class="diary-entry reveal" style="position:relative;">
+      <div class="paperclip silver" style="top:-14px;left:-8px;transform:rotate(-5deg);"></div>
       <div class="entry-label"><span class="pushpin blue"></span>on my bookshelf</div>
       <div class="entry-body">
-        <p>Ask me about Middle-earth or Westeros and I will not be brief about it. J.R.R. Tolkien and George R.R. Martin built worlds so vast and human that I've spent years happily lost in them — not for the dragons or the battles, but for what they say about power, loss, loyalty, and the long, winding journeys their characters take to become who they are. And closer to home, Humayun Ahmed's writing has a different kind of magic — the way he finds depth and quiet emotion in ordinary Bengali life is something I don't think I'll ever stop returning to.</p>
+        <p>Ask me about <span class="hl-yellow">Middle-earth</span> or <span class="hl-blue">Westeros</span> and I will not be brief about it. J.R.R. Tolkien and George R.R. Martin built worlds so vast and human that I've spent years happily lost in them — not for the dragons or the battles, but for what they say about power, loss, loyalty, and the long, winding journeys their characters take to become who they are. And closer to home, <span class="hl-green">Humayun Ahmed's</span> writing has a different kind of magic — the way he finds depth and quiet emotion in ordinary Bengali life is something I don't think I'll ever stop returning to.</p>
       </div>
 
       <div class="bookshelf">
@@ -620,16 +735,21 @@
           দুই সাতানের গল্প
           <span class="book-author">Humayun Ahmed</span>
         </div>
+        <div class="book">
+          নীল রকম ছায়া
+          <span class="book-author">Humayun Ahmed</span>
+        </div>
       </div>
     </div>
 
     <!-- STICKERS -->
-    <div style="text-align:center; margin: 40px 0 20px;">
-      <span class="sticker">endlessly curious</span>
-      <span class="sticker">deeply emotional</span>
-      <span class="sticker">process over finish line</span>
-      <span class="sticker">home is a feeling</span>
-      <span class="sticker">why does it work that way?</span>
+    <div style="text-align:center; margin: 48px 0 24px;">
+      <span class="sticker sticker-yellow">endlessly curious</span>
+      <span class="sticker sticker-pink">deeply emotional</span>
+      <span class="sticker sticker-blue">process over finish line</span>
+      <span class="sticker sticker-green">home is a feeling</span>
+      <span class="sticker sticker-yellow">why does it work that way?</span>
+      <span class="sticker sticker-pink">the messy middle</span>
     </div>
 
     <!-- QUOTE -->
@@ -637,7 +757,7 @@
       If there's a thread running through all of it — the books, the travel, the questions, the countries I've called home — it's this: I've never been in a rush to arrive anywhere. I just want to keep learning, keep noticing, keep going.
     </div>
 
-    <!-- COFFEE STAIN (decorative) -->
+    <!-- COFFEE STAINS -->
     <div class="coffee-stain" style="top: 120px; right: -20px;"></div>
     <div class="coffee-stain" style="bottom: 200px; left: -30px; width: 60px; height: 60px;"></div>
 
