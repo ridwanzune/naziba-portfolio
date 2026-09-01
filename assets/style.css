@@ -963,6 +963,9 @@ button:focus-visible,
   .tl-item { grid-template-columns: 1fr; }
   .edu-card, .mention-card { grid-template-columns: 1fr; }
   .edu-logo, .mention-logo { width: 100%; height: auto; aspect-ratio: 1; }
+  .life-rail { display: none !important; }
+  .edu-logo { display: none !important; }
+  .mention-logo { display: none !important; }
   section { padding: 40px 0; }
   .flag-pill { font-size: 0.66rem; padding: 4px 10px; }
   .flag-icon { width: 16px; height: 12px; }
