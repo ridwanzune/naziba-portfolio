@@ -207,46 +207,54 @@
     .book:hover { transform: translateY(-4px) rotate(-1deg); box-shadow: 0 4px 12px var(--shadow-heavy); }
     .book .book-author { display: block; font-family: var(--font-mono); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-faint); margin-top: 8px; }
 
-    /* ═══ TRAVEL PASSPORT STAMPS ═══ */
+    /* ═══ PASSPORT STAMPS ═══ */
     .passport-grid {
-      display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; justify-content: center;
+      display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; justify-content: center;
     }
     .passport-stamp {
-      width: 68px; height: 68px; border-radius: 50%; border: 2px dashed var(--ink-faint);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      font-family: var(--font-mono); font-size: 8px; text-transform: uppercase; letter-spacing: 0.5px;
-      color: var(--ink-soft); position: relative; background: rgba(255,255,255,0.5);
-      transition: transform 0.2s ease;
-    }
-    .passport-stamp:hover { transform: scale(1.1) rotate(-3deg); }
-    .passport-stamp .flag-big { font-size: 22px; line-height: 1; margin-bottom: 2px; }
-    .passport-stamp .country-name { font-size: 7px; font-weight: 600; line-height: 1.1; text-align: center; }
-    .passport-stamp.stamped { border-color: var(--accent-soft); border-style: solid; background: rgba(180,106,70,0.06); }
-
-    /* ═══ SIDE TRAVEL MAP ═══ */
-    .side-travel {
-      position: absolute;
-      top: 140px;
-      width: 160px;
-    }
-    .side-travel.left { left: -180px; }
-    .side-travel.right { right: -180px; }
-    .side-travel-title {
-      font-family: var(--font-hand);
-      font-size: 16px;
-      color: var(--accent);
-      margin-bottom: 12px;
-      text-align: center;
-    }
-    .side-stamp {
-      width: 54px; height: 54px; border-radius: 50%; border: 1.5px dashed var(--line);
+      width: 80px; height: 90px; border-radius: 6px; border: 2px dashed var(--ink-faint);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       font-family: var(--font-mono); color: var(--ink-soft); background: rgba(255,255,255,0.5);
-      margin: 6px auto; transition: transform 0.2s ease;
+      transition: transform 0.2s ease; position: relative; overflow: hidden; gap: 4px;
     }
-    .side-stamp:hover { transform: scale(1.15) rotate(-5deg); }
-    .side-stamp .s-flag { font-size: 18px; line-height: 1; }
-    .side-stamp .s-name { font-size: 6px; text-transform: uppercase; letter-spacing: 0.3px; margin-top: 1px; }
+    .passport-stamp:hover { transform: scale(1.08) rotate(-2deg); }
+    .passport-stamp .flag-img { width: 40px; height: 28px; border-radius: 2px; object-fit: cover; border: 1px solid rgba(0,0,0,0.1); }
+    .passport-stamp .country-name { font-size: 7px; text-transform: uppercase; letter-spacing: 0.4px; line-height: 1.1; text-align: center; font-weight: 600; }
+    .passport-stamp.stamped { border-color: var(--accent-soft); border-style: solid; background: rgba(180,106,70,0.06); }
+    .passport-stamp.stamped::after {
+      content: '★'; position: absolute; top: 3px; right: 5px; font-size: 10px; color: var(--accent);
+    }
+
+    /* ═══ SIDE TRAVEL ═══ */
+    .side-travel { display: none; }
+
+    /* ═══ FOOTER SCRAPBOOK CARDS ═══ */
+    .footer-scrap {
+      position: relative; max-width: 700px; margin: 48px auto 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .scrap-card {
+      background: var(--paper); border: 1px solid var(--line-faint);
+      padding: 24px 20px; position: relative;
+      box-shadow: 2px 3px 10px var(--shadow);
+    }
+    .scrap-card::before {
+      content: ''; position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-1deg);
+      width: 70px; height: 22px; background: rgba(255,220,150,0.55);
+      border: 1px solid rgba(200,170,100,0.3); border-radius: 2px;
+    }
+    .scrap-card.tilt-l { transform: rotate(-0.8deg); }
+    .scrap-card.tilt-r { transform: rotate(0.6deg); }
+    .scrap-card-label { font-family: var(--font-hand); font-size: 15px; color: var(--accent); margin-bottom: 6px; }
+    .scrap-card-value { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+    .scrap-card-sub { font-family: var(--font-mono); font-size: 8px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-faint); margin-top: 8px; }
+    .scrap-card-links { margin-top: 10px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .scrap-card-links a {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase;
+      color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent-soft);
+      padding-bottom: 1px; transition: color 0.2s;
+    }
+    .scrap-card-links a:hover { color: var(--accent-deep); }
 
     /* ═══ STICKERS ═══ */
     .sticker { display: inline-block; font-family: var(--font-hand); font-size: 15px; padding: 6px 14px; border-radius: 3px; margin: 6px; position: relative; box-shadow: 1px 2px 4px var(--shadow); }
@@ -293,9 +301,6 @@
     .reveal:nth-child(7) { animation-delay: 0.7s; }
 
     /* ═══ RESPONSIVE ═══ */
-    @media (max-width: 1200px) {
-      .side-travel { display: none; }
-    }
     @media (max-width: 600px) {
       .page-outer { padding: 80px 16px 60px; }
       .diary-entry { padding-left: 22px; }
@@ -304,8 +309,9 @@
       .mode-slider-wrap a { padding: 4px 10px; font-size: 8px; }
       .bookshelf { grid-template-columns: repeat(2, 1fr); }
       .washi { display: none; }
-      .passport-stamp { width: 56px; height: 56px; }
-      .passport-stamp .flag-big { font-size: 18px; }
+      .passport-stamp { width: 64px; height: 74px; }
+      .passport-stamp .flag-img { width: 32px; height: 22px; }
+      .footer-scrap { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -318,31 +324,6 @@
   </div>
 
   <div class="page-outer">
-
-    <!-- SIDE TRAVEL — LEFT -->
-    <div class="side-travel left">
-      <div class="side-travel-title">places I've been</div>
-      <div class="side-stamp"><span class="s-flag">🇧🇩</span><span class="s-name">BD</span></div>
-      <div class="side-stamp"><span class="s-flag">🇺🇸</span><span class="s-name">US</span></div>
-      <div class="side-stamp"><span class="s-flag">🇬🇧</span><span class="s-name">UK</span></div>
-      <div class="side-stamp"><span class="s-flag">🇸🇦</span><span class="s-name">KSA</span></div>
-      <div class="side-stamp"><span class="s-flag">🇮🇹</span><span class="s-name">IT</span></div>
-      <div class="side-stamp"><span class="s-flag">🇨🇳</span><span class="s-name">CN</span></div>
-    </div>
-
-    <!-- SIDE TRAVEL — RIGHT -->
-    <div class="side-travel right">
-      <div class="side-travel-title">& more</div>
-      <div class="side-stamp"><span class="s-flag">🇸🇬</span><span class="s-name">SG</span></div>
-      <div class="side-stamp"><span class="s-flag">🇲🇾</span><span class="s-name">MY</span></div>
-      <div class="side-stamp"><span class="s-flag">🇯🇵</span><span class="s-name">JP</span></div>
-      <div class="side-stamp"><span class="s-flag">🇹🇷</span><span class="s-name">TR</span></div>
-      <div class="side-stamp"><span class="s-flag">🇦🇪</span><span class="s-name">AE</span></div>
-      <div class="side-stamp"><span class="s-flag">🇭🇰</span><span class="s-name">HK</span></div>
-      <div class="side-stamp"><span class="s-flag">🇨🇭</span><span class="s-name">CH</span></div>
-      <div class="side-stamp"><span class="s-flag">🇫🇷</span><span class="s-name">FR</span></div>
-      <div class="side-stamp"><span class="s-flag">🇪🇸</span><span class="s-name">ES</span></div>
-    </div>
 
     <div class="page-wrap">
 
@@ -373,27 +354,27 @@
         </div>
       </div>
 
-      <!-- COUNTRIES VISITED — SCRAPBOOK STYLE -->
+      <!-- COUNTRIES VISITED — PASSPORT STAMPS -->
       <div class="tape-card tilt-right reveal" style="text-align:center;position:relative;">
         <div class="tape-strip tape-strip-yellow" style="width:80px;top:-13px;left:20px;transform:rotate(-2deg);"></div>
         <div class="tape-strip tape-strip-pink" style="width:60px;top:-13px;right:25px;transform:rotate(1deg);"></div>
         <div style="font-family:var(--font-hand);font-size:18px;color:var(--accent);margin-bottom:16px;">✈ places my feet have been</div>
         <div class="passport-grid">
-          <div class="passport-stamp stamped"><span class="flag-big">🇧🇩</span><span class="country-name">Bangladesh</span></div>
-          <div class="passport-stamp stamped"><span class="flag-big">🇺🇸</span><span class="country-name">United States</span></div>
-          <div class="passport-stamp stamped"><span class="flag-big">🇬🇧</span><span class="country-name">United Kingdom</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇸🇦</span><span class="country-name">Saudi Arabia</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇮🇹</span><span class="country-name">Italy</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇨🇳</span><span class="country-name">China</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇸🇬</span><span class="country-name">Singapore</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇲🇾</span><span class="country-name">Malaysia</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇯🇵</span><span class="country-name">Japan</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇹🇷</span><span class="country-name">Turkey</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇦🇪</span><span class="country-name">UAE</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇭🇰</span><span class="country-name">Hong Kong</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇨🇭</span><span class="country-name">Switzerland</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇫🇷</span><span class="country-name">France</span></div>
-          <div class="passport-stamp"><span class="flag-big">🇪🇸</span><span class="country-name">Spain</span></div>
+          <div class="passport-stamp stamped"><img class="flag-img" src="https://flagcdn.com/bd.svg" alt="Bangladesh"><span class="country-name">Bangladesh</span></div>
+          <div class="passport-stamp stamped"><img class="flag-img" src="https://flagcdn.com/us.svg" alt="United States"><span class="country-name">United States</span></div>
+          <div class="passport-stamp stamped"><img class="flag-img" src="https://flagcdn.com/gb.svg" alt="United Kingdom"><span class="country-name">United Kingdom</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/sa.svg" alt="Saudi Arabia"><span class="country-name">Saudi Arabia</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/it.svg" alt="Italy"><span class="country-name">Italy</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/cn.svg" alt="China"><span class="country-name">China</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/sg.svg" alt="Singapore"><span class="country-name">Singapore</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/my.svg" alt="Malaysia"><span class="country-name">Malaysia</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/jp.svg" alt="Japan"><span class="country-name">Japan</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/tr.svg" alt="Turkey"><span class="country-name">Turkey</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/ae.svg" alt="UAE"><span class="country-name">UAE</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/hk.svg" alt="Hong Kong"><span class="country-name">Hong Kong</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/ch.svg" alt="Switzerland"><span class="country-name">Switzerland</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/fr.svg" alt="France"><span class="country-name">France</span></div>
+          <div class="passport-stamp"><img class="flag-img" src="https://flagcdn.com/es.svg" alt="Spain"><span class="country-name">Spain</span></div>
         </div>
         <div style="font-family:var(--font-hand);font-size:14px;color:var(--ink-faint);margin-top:12px;">3 homes · 12 countries · and counting</div>
       </div>
@@ -490,6 +471,33 @@
       <!-- COFFEE STAINS -->
       <div class="coffee-stain" style="top: 120px; right: -20px;"></div>
       <div class="coffee-stain" style="bottom: 200px; left: -30px; width: 60px; height: 60px;"></div>
+
+      <!-- FOOTER SCRAPBOOK CARDS -->
+      <div class="footer-scrap reveal">
+        <div class="scrap-card tilt-l">
+          <div class="scrap-card-label">📍 based in</div>
+          <div class="scrap-card-value">London, UK</div>
+          <div class="scrap-card-sub">right to work to dec 2027</div>
+        </div>
+        <div class="scrap-card tilt-r">
+          <div class="scrap-card-label">🎓 education</div>
+          <div class="scrap-card-value">LSE MSc · UC Davis BA</div>
+          <div class="scrap-card-sub">merit · dean's list · 3.6/4.0</div>
+        </div>
+        <div class="scrap-card tilt-r">
+          <div class="scrap-card-label">🌍 homes</div>
+          <div class="scrap-card-value">Dhaka · California · London</div>
+          <div class="scrap-card-sub">home is a feeling</div>
+        </div>
+        <div class="scrap-card tilt-l">
+          <div class="scrap-card-label">✉ reach me</div>
+          <div class="scrap-card-links">
+            <a href="mailto:nazibazaman99@gmail.com">email</a>
+            <a href="https://www.linkedin.com/in/naziba-nawrin-a1048722b/" target="_blank" rel="noopener">linkedin</a>
+            <a href="index.html">professional mode →</a>
+          </div>
+        </div>
+      </div>
 
       <!-- FOOTER -->
       <footer class="diary-footer reveal">
